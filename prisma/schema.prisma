@@ -18,7 +18,7 @@ model User {
   email String @unique
   hash  String
 
-  firstname String?
+  firstName String?
   lastName  String?
   bookmarks  Bookmark[]
 
@@ -35,7 +35,7 @@ model Bookmark {
   link        String
 
   userId Int
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("bookmarks")
 }
